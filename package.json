@@ -1,0 +1,55 @@
+{
+  "name": "follow-the-white-rabbit",
+  "private": true,
+  "description": "N/A",
+  "version": "0.0.0",
+  "author": "kenneth österholm",
+  "dependencies": {
+    "@reach/accordion": "0.10.3",
+    "@reach/tooltip": "0.10.3",
+    "camelcase-keys": "^6.2.2",
+    "date-fns": "2.14.0",
+    "gatsby": "^2.22.15",
+    "gatsby-image": "^2.4.5",
+    "gatsby-plugin-manifest": "^2.4.9",
+    "gatsby-plugin-offline": "^3.2.7",
+    "gatsby-plugin-react-helmet": "^3.3.2",
+    "gatsby-plugin-sharp": "^2.6.9",
+    "gatsby-plugin-theme-ui": "0.3.0",
+    "gatsby-source-datocms": "2.2.5",
+    "gatsby-source-filesystem": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.5.3",
+    "gatsby-transformer-xml": "^2.3.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-icons": "3.10.0",
+    "theme-ui": "0.3.1"
+  },
+  "devDependencies": {
+    "gatsby-transformer-json": "2.4.5",
+    "prettier": "2.0.5"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "npm run develop",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenone/follow-the-white-rabbit"
+  },
+  "bugs": {
+    "url": "https://github.com/kenone/follow-the-white-rabbit/issues"
+  }
+}
