@@ -1,5 +1,5 @@
-// import "typeface-montserrat"
-
+import 'typeface-kanit'
+import 'typeface-righteous'
 import PropTypes from 'prop-types'
 import React from 'react'
 
