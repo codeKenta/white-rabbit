@@ -1,5 +1,5 @@
 {
-  "name": "follow-the-white-rabbit",
+  "name": "white-rabbit",
   "private": true,
   "description": "N/A",
   "version": "0.0.0",
@@ -7,6 +7,7 @@
   "dependencies": {
     "@reach/accordion": "0.10.3",
     "@reach/tooltip": "0.10.3",
+    "@theme-ui/color": "^0.3.1",
     "camelcase-keys": "^6.2.2",
     "date-fns": "2.14.0",
     "gatsby": "^2.22.15",
@@ -52,9 +53,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kenone/follow-the-white-rabbit"
+    "url": "https://github.com/kenone/white-rabbit"
   },
   "bugs": {
-    "url": "https://github.com/kenone/follow-the-white-rabbit/issues"
+    "url": "https://github.com/kenone/white-rabbit/issues"
   }
 }

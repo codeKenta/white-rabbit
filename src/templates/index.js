@@ -5,6 +5,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Heading, jsx, Styled, Flex, Box } from 'theme-ui'
+import { alpha } from '@theme-ui/color'
 
 // import Seo from "../components/Seo"
 import BackgroundImage from 'gatsby-background-image'
@@ -24,10 +25,19 @@ const IndexPage = ({
       width: '100%',
     },
     introText: {
+      position: 'relative',
+      bottom: '50px',
       maxWidth: '500px',
       em: {
         color: 'secondaryContrast',
       },
+    },
+    heroInner: {
+      minHeight: '90vh',
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      backgroundColor: alpha('primaryBackground', 0.8),
     },
     firstSection: {
       backgroundColor: 'primaryBackground',
@@ -57,7 +67,7 @@ const IndexPage = ({
         Tag='div'
         fluid={heroImage.fluid}
       >
-        <div sx={{ minHeight: '90vh' }}>
+        <div sx={styles.heroInner}>
           <PageContentWrapper>
             <MarkdownJsx sx={styles.introText}>{introText}</MarkdownJsx>
           </PageContentWrapper>
