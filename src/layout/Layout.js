@@ -14,6 +14,7 @@ import LocaleContext from '@context/LocaleContext'
 import React from 'react'
 import { jsx } from 'theme-ui'
 import MainNav from '@components/MainNav'
+import Footer from '@components/Footer'
 const Layout = ({
   children,
   data,
@@ -29,12 +30,18 @@ const Layout = ({
           locale: ((data || {}).page || {}).locale ? data.page.locale : '',
         }}
       >
-        <MainNav />
-
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-        <div>
+        <MainNav />
+        <div
+          sx={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
           <main>{children}</main>
-          <footer />
+          <Footer />
         </div>
       </LocaleContext.Provider>
     </>

@@ -21,7 +21,7 @@ const IndexPage = ({
   const styles = {
     hero: {
       backgroundSize: 'cover',
-      minHeight: '100vh',
+      height: '100vh',
       width: '100%',
     },
     introText: {
@@ -33,7 +33,7 @@ const IndexPage = ({
       },
     },
     heroInner: {
-      minHeight: '90vh',
+      height: '100vh',
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'column',
@@ -61,7 +61,6 @@ const IndexPage = ({
         sx={{
           backgroundSize: 'cover',
           height: '100vh',
-          minHeight: '90vh',
           width: '100%',
         }}
         Tag='div'
@@ -72,22 +71,21 @@ const IndexPage = ({
             <MarkdownJsx sx={styles.introText}>{introText}</MarkdownJsx>
           </PageContentWrapper>
         </div>
-
-        <section sx={styles.firstSection}>
-          <PageContentWrapper>
-            <Flex sx={{ justifyContent: 'space-between' }}>
-              <Box>Image here?</Box>
-              <Box sx={styles.firstSectionTextWrapper}>
-                <Styled.h2>{firstSectionTitle}</Styled.h2>
-                <MarkdownJsx sx={styles.firstSectionText}>
-                  {firstSectionText}
-                </MarkdownJsx>
-              </Box>
-            </Flex>
-          </PageContentWrapper>
-        </section>
       </BackgroundImage>
-      <div></div>
+
+      <section sx={styles.firstSection}>
+        <PageContentWrapper>
+          <Flex sx={{ justifyContent: 'space-between' }}>
+            <Box>Image here?</Box>
+            <Box sx={styles.firstSectionTextWrapper}>
+              <Styled.h2>{firstSectionTitle}</Styled.h2>
+              <MarkdownJsx sx={styles.firstSectionText}>
+                {firstSectionText}
+              </MarkdownJsx>
+            </Box>
+          </Flex>
+        </PageContentWrapper>
+      </section>
     </>
   )
 }
