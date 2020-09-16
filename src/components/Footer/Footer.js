@@ -1,24 +1,39 @@
 /** @jsx jsx */
 
 import { jsx } from 'theme-ui'
-import { useState, useEffect } from 'react'
 
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import useLocaleContext from '@hooks/useLocaleContext'
 import Logo from '@components/Logo'
 import { isActiveOrHasActiveParent } from '@utils/'
 import { useLocation } from '@reach/router'
-import getStyles from './styles'
-import Hamburger from '@components/Hamburger'
 
-const MainNav = () => {
-  const { allMainNavs } = useStaticQuery(
+const styles = {
+  footer: {
+    backgroundColor: 'background',
+    padding: 4,
+  },
+  a: {
+    textDecoration: 'none',
+    color: 'white',
+    cursor: 'pointer',
+    transition: 'color 500ms ease',
+    ':hover': {
+      color: 'secondaryContrast',
+    },
+  },
+  listWrapper: {
+    padding: 0,
+    listStyle: 'none',
+    color: 'white',
+  },
+}
+
+const Footer = () => {
+  const { allLinks } = useStaticQuery(
     graphql`
       query {
-        allMainNavs: allDatoCmsNavigation(
-          filter: { showInMainNav: { eq: true } }
-          sort: { fields: position }
-        ) {
+        allLinks: allDatoCmsNavigation(sort: { fields: position }) {
           edges {
             node {
               locale
@@ -57,24 +72,10 @@ const MainNav = () => {
     `
   )
 
-  const [isActive, setIsActive] = useState(false)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (isActive) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.overflow = ''
-      }
-    }
-  }, [isActive])
-
-  const styles = getStyles(isActive)
-
   const location = useLocation()
   const { locale } = useLocaleContext()
 
-  const localeLinks = allMainNavs.edges.filter(
+  const localeLinks = allLinks.edges.filter(
     ({ node }) => node.locale === locale
   )
 
@@ -103,21 +104,13 @@ const MainNav = () => {
   )
 
   return (
-    <div sx={styles.navWrapper}>
-      <nav sx={styles.nav}>
-        <div sx={styles.logoWrapper}>
-          <Logo />
-        </div>
-
-        {renderLinks()}
-      </nav>
-
-      <Hamburger
-        isActive={isActive}
-        handleClick={(e) => setIsActive(!isActive)}
-      />
-    </div>
+    <footer sx={styles.footer}>
+      <div sx={{ height: '50px', width: 'max-content' }}>
+        <Logo fillWhite />
+      </div>
+      {renderLinks()}
+    </footer>
   )
 }
 
-export default MainNav
+export default Footer
