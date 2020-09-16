@@ -11,9 +11,9 @@ const PageContentWrapper = ({ children }) => {
     <div
       sx={{
         width: '100%',
-        maxWidth: '1000px',
+        maxWidth: '1200px',
         margin: '0 auto',
-        padding: 3,
+        px: [3, 4, null, null, 5],
       }}
     >
       {children}

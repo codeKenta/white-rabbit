@@ -14,7 +14,6 @@ import LocaleContext from '@context/LocaleContext'
 import React from 'react'
 import { jsx } from 'theme-ui'
 import MainNav from '@components/MainNav'
-import Logo from '@components/Logo'
 const Layout = ({
   children,
   data,
@@ -31,9 +30,7 @@ const Layout = ({
         }}
       >
         <MainNav />
-        <div sx={{ maxWidth: '200px' }}>
-          <Logo />
-        </div>
+
         {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <div>
           <main>{children}</main>
