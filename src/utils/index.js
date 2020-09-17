@@ -11,4 +11,7 @@ export const isActiveOrHasActiveParent = (path, slug, localePrefix) => {
   }
 }
 
-//
+export const platformTypes = {
+  discord: 'DISCORD',
+  meetup: 'MEETUP',
+}

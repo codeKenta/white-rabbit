@@ -3,7 +3,7 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `Bolt`,
+    title: `White Rabbit`,
     description: ``,
     author: `Kenneth Österholm`,
   },
@@ -17,8 +17,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Follow-the-White-Rabbit`,
-        short_name: `follow-the-white-rabbit`,
+        name: `White Rabbit`,
+        short_name: `White Rabbit`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import LocaleContext from '@context/LocaleContext';
+import { useContext } from 'react'
+import LocaleContext from '@context/LocaleContext'
 
 export default function useLocaleContext() {
-  return useContext(LocaleContext);
+  return useContext(LocaleContext)
 }

@@ -10,7 +10,7 @@ import { useLocation } from '@reach/router'
 
 const styles = {
   footer: {
-    backgroundColor: 'background',
+    backgroundColor: 'darkBackground',
     padding: 4,
   },
   a: {

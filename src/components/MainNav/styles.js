@@ -8,7 +8,7 @@ const getStyles = (isActive) => ({
     px: [3, 4, null, null, 5],
     '@media screen and (max-width: 699px)': {
       position: isActive ? 'fixed' : 'absolute',
-      backgroundColor: isActive ? 'primaryBackground' : 'unset',
+      backgroundColor: isActive ? 'background' : 'unset',
       height: isActive ? '100vh' : 'auto',
     },
     '@media screen and (min-width: 700px)': {

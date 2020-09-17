@@ -92,7 +92,7 @@ const MainNav = () => {
             <Link
               sx={styles.a}
               className={`${isActive ? 'active' : ''}`}
-              to={link.pageLink.slug}
+              to={'/' + link.pageLink.slug}
             >
               {link.linkText}
             </Link>
@@ -105,9 +105,11 @@ const MainNav = () => {
   return (
     <div sx={styles.navWrapper}>
       <nav sx={styles.nav}>
-        <div sx={styles.logoWrapper}>
-          <Logo />
-        </div>
+        <Link to='/'>
+          <div sx={styles.logoWrapper}>
+            <Logo />
+          </div>
+        </Link>
 
         {renderLinks()}
       </nav>
