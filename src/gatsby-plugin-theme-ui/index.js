@@ -9,6 +9,19 @@ export default {
     tertiaryContrast: '#1B87DE',
     success: '#ace498',
     fail: '#f46969',
+    modes: {
+      dark: {
+        background: '#F0F0F0',
+        darkBackground: '#B8C0CD',
+        secondaryBackground: '#C4DAFB',
+        text: '#121820',
+        primary: '#B030B0',
+        secondaryContrast: '#D89D09',
+        tertiaryContrast: '#1B87DE',
+        success: '#ace498',
+        fail: '#f46969',
+      },
+    },
   },
   fonts: {
     body: "'Kanit', sans-serif",

@@ -3,6 +3,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
+import { useThemeUI } from 'theme-ui'
+import { getColor } from '@theme-ui/color'
 // import Seo from "../components/Seo"
 import PageContentWrapper from '@components/PageContentWrapper'
 import PageIntroContent from '@components/PageIntroContent'
@@ -14,6 +16,10 @@ const GuidePage = ({
     content: { heading, text, articles },
   },
 }) => {
+  const context = useThemeUI()
+  const { theme, colorMode, setColorMode } = context
+
+  // console.log(getColor(theme, 'darkBackground'))
   return (
     <>
       <PageContentWrapper addPaddingY>
@@ -22,7 +28,7 @@ const GuidePage = ({
       {Array.isArray(articles) && articles.length > 0
         ? articles.map(({ articleHeading, articleIntro, body, id }, index) => (
             <>
-              <Wave fillColor={index % 2 == 0 ? '#05052A ' : '#202040'} />
+              <Wave fillColor={index % 2 === 0 ? 'yellow' : 'pink'} />
               <div
                 sx={{
                   backgroundColor:

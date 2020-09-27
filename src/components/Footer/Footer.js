@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from 'theme-ui'
+import { jsx, Button, useColorMode } from 'theme-ui'
 
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import useLocaleContext from '@hooks/useLocaleContext'
@@ -75,6 +75,8 @@ const Footer = () => {
   const location = useLocation()
   const { locale } = useLocaleContext()
 
+  const [colorMode, setColorMode] = useColorMode()
+
   const localeLinks = allLinks.edges.filter(
     ({ node }) => node.locale === locale
   )
@@ -109,6 +111,15 @@ const Footer = () => {
         <Logo fillWhite />
       </div>
       {renderLinks()}
+
+      <Button
+        sx={{ marginTop: ['20px', 4], variant: 'primary' }}
+        onClick={(e) => {
+          setColorMode(colorMode === 'default' ? 'dark' : 'default')
+        }}
+      >
+        Toggle {colorMode === 'default' ? 'Dark' : 'Light'}
+      </Button>
     </footer>
   )
 }

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { jsx, Styled, Flex, Box } from 'theme-ui'
+import { jsx, Styled, Flex, Box, useThemeUI } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
 
 // import Seo from "../components/Seo"
@@ -10,48 +10,52 @@ import BackgroundImage from 'gatsby-background-image'
 import PageContentWrapper from '@components/PageContentWrapper'
 import MarkdownJsx from 'markdown-to-jsx'
 
-const styles = {
-  hero: {
-    backgroundSize: 'cover',
-    height: '100vh',
-    width: '100%',
-  },
-  introText: {
-    position: 'relative',
-    bottom: '50px',
-    maxWidth: '500px',
-    em: {
-      color: 'secondaryContrast',
-    },
-  },
-  heroInner: {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    backgroundColor: alpha('background', 0.8),
-  },
-  firstSection: {
-    backgroundColor: 'background',
-    py: [4, null, 5],
-  },
-  firstSectionTextWrapper: {
-    maxWidth: '500px',
-  },
-  firstSectionText: {
-    strong: {
-      color: 'secondaryContrast',
-      fontWeight: '700',
-    },
-  },
-}
-
 const IndexPage = ({
   data: {
     content: { introText, firstSectionText, firstSectionTitle },
     hero: { heroImage },
   },
 }) => {
+  const { theme } = useThemeUI()
+
+  console.log(theme)
+
+  const styles = {
+    hero: {
+      backgroundSize: 'cover',
+      height: '100vh',
+      width: '100%',
+    },
+    introText: {
+      position: 'relative',
+      bottom: '50px',
+      maxWidth: '500px',
+      em: {
+        color: 'secondaryContrast',
+      },
+    },
+    heroInner: {
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      backgroundColor: alpha('background', 0.8),
+    },
+    firstSection: {
+      backgroundColor: 'background',
+      py: [4, null, 5],
+    },
+    firstSectionTextWrapper: {
+      maxWidth: '500px',
+    },
+    firstSectionText: {
+      strong: {
+        color: 'secondaryContrast',
+        fontWeight: '700',
+      },
+    },
+  }
+
   return (
     <>
       {/* <Seo description={seoDescription} pathname={url} title={title} /> */}
