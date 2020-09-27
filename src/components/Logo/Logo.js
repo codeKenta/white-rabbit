@@ -1,7 +1,5 @@
 /** @jsx jsx */
 
-// import { graphql, useStaticQuery } from "gatsby"
-
 import { jsx } from 'theme-ui'
 import React from 'react'
 import PropTypes from 'prop-types'
