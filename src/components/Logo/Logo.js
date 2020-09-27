@@ -12,23 +12,23 @@ const Logo = ({ fillWhite }) => {
       <g
         id='Page-1'
         stroke='none'
-        stroke-width='1'
+        strokeWidth='1'
         fill='none'
-        fill-rule='evenodd'
+        fillRule='evenodd'
       >
         <g
           id='Group'
           transform='translate(-4.000000, -5.000000)'
           fill='#B030B0'
           sx={{
-            fill: fillWhite ? 'text' : 'primaryContrast',
+            fill: fillWhite ? 'text' : 'primary',
           }}
         >
           <text
             id='ASTRAL-EXPLORERS'
-            font-family='Righteous-Regular, Righteous'
-            font-size='24'
-            font-weight='normal'
+            fontFamily='Righteous-Regular, Righteous'
+            fontSize='24'
+            fontWeight='normal'
             line-spacing='21'
           >
             <tspan x='58' y='26'>
