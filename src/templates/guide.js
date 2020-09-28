@@ -1,11 +1,10 @@
 /** @jsx jsx */
 
+// import Seo from "../components/Seo"
 import PropTypes from 'prop-types'
 import React from 'react'
 import { jsx, Styled } from 'theme-ui'
-import { useThemeUI } from 'theme-ui'
-import { getColor } from '@theme-ui/color'
-// import Seo from "../components/Seo"
+import { useColors } from '@hooks/useColors'
 import PageContentWrapper from '@components/PageContentWrapper'
 import PageIntroContent from '@components/PageIntroContent'
 import Wave from '@components/Wave'
@@ -16,67 +15,98 @@ const GuidePage = ({
     content: { heading, text, articles },
   },
 }) => {
-  const context = useThemeUI()
-  const { theme, colorMode, setColorMode } = context
+  const colors = useColors()
 
-  // console.log(getColor(theme, 'darkBackground'))
   return (
     <>
       <PageContentWrapper addPaddingY>
         <PageIntroContent heading={heading} text={text} />
       </PageContentWrapper>
-      {Array.isArray(articles) && articles.length > 0
-        ? articles.map(({ articleHeading, articleIntro, body, id }, index) => (
-            <>
-              <Wave fillColor={index % 2 === 0 ? 'yellow' : 'pink'} />
-              <div
-                sx={{
-                  backgroundColor:
-                    index % 2 == 0 ? 'darkBackground' : 'background',
-                }}
-              >
-                <PageContentWrapper>
-                  <article key={id} sx={{ py: [2, null, 5] }}>
-                    <Styled.h2 sx={{ color: 'secondaryContrast' }}>
-                      {articleHeading}
-                    </Styled.h2>
-                    <p
-                      sx={{ fontSize: 4, fontWeight: '700', maxWidth: '800px' }}
-                    >
-                      {articleIntro}
-                    </p>
-                    <MarkdownJsx
+      <div sx={{ marginTop: '100px' }}>
+        {Array.isArray(articles) && articles.length > 0
+          ? articles.map(
+              ({ articleHeading, articleIntro, body, id }, index) => {
+                const IS_EVEN = index % 2 === 0
+                const IS_ODD = index % 2 !== 0
+
+                const IS_NOT_LAST = index < articles.length - 1
+                const bg = IS_EVEN
+                  ? colors.darkBackground
+                  : colors.tertiaryBackground
+                console.log(
+                  'CECK',
+                  IS_EVEN,
+                  IS_NOT_LAST,
+                  index,
+                  articles.length
+                )
+                return (
+                  <>
+                    <Styled.div
                       sx={{
-                        h3: {
-                          marginBottom: 0,
-                        },
-                        'h3 + p': {
-                          marginTop: 1,
-                        },
-                        h4: {
-                          mx: 4,
-                          marginBottom: 0,
-                        },
-                        'h4 + p': {
-                          mx: 4,
-                          marginTop: 1,
-                        },
-                        'h4 + p + p': {
-                          mx: 4,
-                        },
-                        'h4 + p + p + p': {
-                          mx: 4,
-                        },
+                        backgroundColor: bg,
                       }}
                     >
-                      {body}
-                    </MarkdownJsx>
-                  </article>
-                </PageContentWrapper>
-              </div>
-            </>
-          ))
-        : null}
+                      <div sx={{ position: 'relative', bottom: '45px' }}>
+                        <Wave fillColor={bg} />
+                      </div>
+                      <PageContentWrapper>
+                        <article
+                          key={id}
+                          sx={{
+                            paddingTop: 0,
+                            paddingBottom: IS_NOT_LAST
+                              ? ['60px', '80px']
+                              : [2, null, 5],
+                          }}
+                        >
+                          <Styled.h2 sx={{ color: colors.secondaryContrast }}>
+                            {articleHeading}
+                          </Styled.h2>
+                          <p
+                            sx={{
+                              fontSize: 4,
+                              fontWeight: '700',
+                              maxWidth: '800px',
+                            }}
+                          >
+                            {articleIntro}
+                          </p>
+                          <MarkdownJsx
+                            sx={{
+                              h3: {
+                                marginBottom: 0,
+                              },
+                              'h3 + p': {
+                                marginTop: 1,
+                              },
+                              h4: {
+                                mx: 4,
+                                marginBottom: 0,
+                              },
+                              'h4 + p': {
+                                mx: 4,
+                                marginTop: 1,
+                              },
+                              'h4 + p + p': {
+                                mx: 4,
+                              },
+                              'h4 + p + p + p': {
+                                mx: 4,
+                              },
+                            }}
+                          >
+                            {body}
+                          </MarkdownJsx>
+                        </article>
+                      </PageContentWrapper>
+                    </Styled.div>
+                  </>
+                )
+              }
+            )
+          : null}
+      </div>
     </>
   )
 }

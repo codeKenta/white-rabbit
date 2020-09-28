@@ -8,6 +8,7 @@ import PageContentWrapper from '@components/PageContentWrapper'
 import PageContentWithPlatform from '@components/PageContentWithPlatform'
 import PageIntroContent from '@components/PageIntroContent'
 import { platformTypes } from '@utils'
+import { useColors } from '@hooks/useColors'
 
 const DiscussionPage = ({
   data: {
@@ -24,6 +25,7 @@ const DiscussionPage = ({
     },
   },
 }) => {
+  const colors = useColors()
   return (
     <PageContentWithPlatform
       platformType={platformTypes.discord}
@@ -52,7 +54,7 @@ const DiscussionPage = ({
                     marginLeft: '4px',
                     cursor: 'pointer',
                     ':hover': {
-                      color: 'secondaryContrast',
+                      color: colors.secondaryContrast,
                     },
                   }}
                 >

@@ -115,10 +115,10 @@ const Footer = () => {
       <Button
         sx={{ marginTop: ['20px', 4], variant: 'primary' }}
         onClick={(e) => {
-          setColorMode(colorMode === 'default' ? 'dark' : 'default')
+          setColorMode(colorMode === 'default' ? 'light' : 'default')
         }}
       >
-        Toggle {colorMode === 'default' ? 'Dark' : 'Light'}
+        Toggle {colorMode === 'default' ? 'Light' : 'Dark'}
       </Button>
     </footer>
   )

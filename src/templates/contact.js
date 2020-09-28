@@ -29,7 +29,7 @@ const ContactPage = ({
         <Input sx={{ maxWidth: '500px' }} id='email' type='email' />
 
         <Label sx={{ marginTop: ['20px', 4], marginBottom: [3] }} for='message'>
-          {eMailFormLabel}
+          {messageFormLabel}
         </Label>
         <Textarea
           id='message'

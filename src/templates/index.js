@@ -2,8 +2,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { jsx, Styled, Flex, Box, useThemeUI } from 'theme-ui'
+import { jsx, Styled, Flex, Box } from 'theme-ui'
 import { alpha } from '@theme-ui/color'
+import { useColors } from '@hooks/useColors'
 
 // import Seo from "../components/Seo"
 import BackgroundImage from 'gatsby-background-image'
@@ -16,45 +17,7 @@ const IndexPage = ({
     hero: { heroImage },
   },
 }) => {
-  const { theme } = useThemeUI()
-
-  console.log(theme)
-
-  const styles = {
-    hero: {
-      backgroundSize: 'cover',
-      height: '100vh',
-      width: '100%',
-    },
-    introText: {
-      position: 'relative',
-      bottom: '50px',
-      maxWidth: '500px',
-      em: {
-        color: 'secondaryContrast',
-      },
-    },
-    heroInner: {
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      backgroundColor: alpha('background', 0.8),
-    },
-    firstSection: {
-      backgroundColor: 'background',
-      py: [4, null, 5],
-    },
-    firstSectionTextWrapper: {
-      maxWidth: '500px',
-    },
-    firstSectionText: {
-      strong: {
-        color: 'secondaryContrast',
-        fontWeight: '700',
-      },
-    },
-  }
+  const colors = useColors()
 
   return (
     <>
@@ -68,20 +31,55 @@ const IndexPage = ({
         Tag='div'
         fluid={heroImage.fluid}
       >
-        <div sx={styles.heroInner}>
+        <div
+          sx={{
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            backgroundColor: alpha(colors.background, 0.8),
+          }}
+        >
           <PageContentWrapper>
-            <MarkdownJsx sx={styles.introText}>{introText}</MarkdownJsx>
+            <MarkdownJsx
+              sx={{
+                position: 'relative',
+                bottom: '50px',
+                maxWidth: '500px',
+                em: {
+                  color: colors.secondaryContrast,
+                },
+              }}
+            >
+              {introText}
+            </MarkdownJsx>
           </PageContentWrapper>
         </div>
       </BackgroundImage>
 
-      <section sx={styles.firstSection}>
+      <section
+        sx={{
+          backgroundColor: colors.background,
+          py: [4, null, 5],
+        }}
+      >
         <PageContentWrapper>
           <Flex sx={{ justifyContent: 'space-between' }}>
             <Box>Image here?</Box>
-            <Box sx={styles.firstSectionTextWrapper}>
+            <Box
+              sx={{
+                maxWidth: '500px',
+              }}
+            >
               <Styled.h2>{firstSectionTitle}</Styled.h2>
-              <MarkdownJsx sx={styles.firstSectionText}>
+              <MarkdownJsx
+                sx={{
+                  strong: {
+                    color: colors.secondaryContrast,
+                    fontWeight: '700',
+                  },
+                }}
+              >
                 {firstSectionText}
               </MarkdownJsx>
             </Box>

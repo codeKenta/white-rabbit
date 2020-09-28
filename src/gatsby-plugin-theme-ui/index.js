@@ -1,8 +1,11 @@
 export default {
+  useCustomProperties: true,
+  initialColorModeName: 'dark',
   colors: {
     background: '#202040',
     darkBackground: '#05052A',
     secondaryBackground: '#1E1E5E',
+    tertiaryBackground: '#102744',
     text: '#FEFEFF',
     primary: '#B030B0',
     secondaryContrast: '#D89D09',
@@ -10,10 +13,11 @@ export default {
     success: '#ace498',
     fail: '#f46969',
     modes: {
-      dark: {
+      light: {
         background: '#F0F0F0',
         darkBackground: '#B8C0CD',
         secondaryBackground: '#C4DAFB',
+        tertiaryBackground: '#678BB7',
         text: '#121820',
         primary: '#B030B0',
         secondaryContrast: '#D89D09',
@@ -95,7 +99,7 @@ export default {
     },
     h2: {
       variant: 'text.heading',
-      fontSize: [4, null, null, 5],
+      fontSize: [5, null, null, 5],
     },
     button: {
       border: 'none',
